@@ -1,19 +1,18 @@
 package com.example.simplecalculator;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private TextView dataLayout;
     private final Button[] digitButtons = new Button[10];
+    private double firstNumber = 0;
+    private String currentOperator = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,19 +32,41 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Button operationClearButton = findViewById(R.id.btn_operation_clear);
-        operationClearButton.setOnClickListener(new View.OnClickListener(){
+        operationClearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dataLayout.setText("0");
+                clearData();
             }
         });
-    };
 
-    private final View.OnClickListener digitClickListener = new View.OnClickListener() {
+        Button operationAdditionButton = findViewById(R.id.btn_operation_addition);
+        operationAdditionButton.setOnClickListener(operationClickListener);
+
+        Button operationSubtractionButton = findViewById(R.id.btn_operation_subtraction);
+        operationSubtractionButton.setOnClickListener(operationClickListener);
+
+        Button operationEqualButton = findViewById(R.id.btn_equal);
+        operationEqualButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                performOperation();
+            }
+        });
+    }
+
+    private View.OnClickListener digitClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             Button clickedButton = (Button) v;
             appendDigit(clickedButton.getText().toString());
+        }
+    };
+
+    private View.OnClickListener operationClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Button clickedButton = (Button) v;
+            setOperator(clickedButton.getText().toString());
         }
     };
 
@@ -57,9 +78,34 @@ public class MainActivity extends AppCompatActivity {
             currentInput += digit;
         }
         dataLayout.setText(currentInput);
-    };
+    }
 
+    private void setOperator(String operator) {
+        firstNumber = Double.parseDouble(dataLayout.getText().toString());
+        currentOperator = operator;
+        clearData();
+    }
 
+    private void clearData() {
+        dataLayout.setText("0");
+    }
 
+    private void performOperation() {
+        double secondNumber = Double.parseDouble(dataLayout.getText().toString());
+        double result = 0;
 
+        switch (currentOperator) {
+            case "+":
+                result = firstNumber + secondNumber;
+                break;
+            case "-":
+                result = firstNumber - secondNumber;
+                break;
+            // Add more cases for other operations if needed
+
+        }
+        dataLayout.setText(String.valueOf(result));
+        firstNumber = 0;
+        currentOperator = "";
+    }
 }

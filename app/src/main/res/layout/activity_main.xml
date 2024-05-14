@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
 
     <TextView
         android:id="@+id/text_input"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
         android:gravity="end"
         android:padding="16dp"
@@ -18,63 +23,66 @@
         android:textAlignment="textEnd"
         android:textSize="36sp" />
 
-    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:columnCount="4"
-    android:rowCount="5"
-    android:padding="16dp">
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="4"
+        android:rowCount="5"
+        android:padding="16dp"
+        android:layout_gravity="bottom"
+        >
 
-    <!-- Row 1 -->
-    <Button android:id="@+id/btn_operation_clear"
-        android:text="AC" />
-    <Button android:id="@+id/btn_operation_negation"
-        android:text="±" />
-    <Button android:id="@+id/btn_operation_percent"
-        android:text="%" />
-    <Button android:id="@+id/btn_operation_division"
-        android:text="÷" />
+        <!-- Row 1 -->
+        <Button android:id="@+id/btn_operation_clear"
+            android:text="AC" />
+        <Button android:id="@+id/btn_operation_negation"
+            android:text="±" />
+        <Button android:id="@+id/btn_operation_percent"
+            android:text="%" />
+        <Button android:id="@+id/btn_operation_division"
+            android:text="÷" />
 
-    <!-- Row 2 -->
-    <Button android:id="@+id/btn_digit_7"
-        android:text="7" />
-    <Button android:id="@+id/btn_digit_8"
-        android:text="8" />
-    <Button android:id="@+id/btn_digit_9"
-        android:text="9" />
-    <Button android:id="@+id/btn_operation_multiplication"
-        android:text="x" />
+        <!-- Row 2 -->
+        <Button android:id="@+id/btn_digit_7"
+            android:text="7" />
+        <Button android:id="@+id/btn_digit_8"
+            android:text="8" />
+        <Button android:id="@+id/btn_digit_9"
+            android:text="9" />
+        <Button android:id="@+id/btn_operation_multiplication"
+            android:text="x" />
 
-    <!-- Row 3 -->
-    <Button android:id="@+id/btn_digit_4"
-        android:text="4" />
-    <Button android:id="@+id/btn_digit_5"
-        android:text="5" />
-    <Button android:id="@+id/btn_digit_6"
-        android:text="6" />
-    <Button android:id="@+id/btn_operation_subtraction"
-        android:text="-" />
+        <!-- Row 3 -->
+        <Button android:id="@+id/btn_digit_4"
+            android:text="4" />
+        <Button android:id="@+id/btn_digit_5"
+            android:text="5" />
+        <Button android:id="@+id/btn_digit_6"
+            android:text="6" />
+        <Button android:id="@+id/btn_operation_subtraction"
+            android:text="-" />
 
-    <!-- Row 4 -->
-    <Button android:id="@+id/btn_digit_1"
-        android:text="1" />
-    <Button android:id="@+id/btn_digit_2"
-        android:text="2" />
-    <Button android:id="@+id/btn_digit_3"
-        android:text="3" />
-    <Button android:id="@+id/btn_operation_addition"
-        android:text="+" />
+        <!-- Row 4 -->
+        <Button android:id="@+id/btn_digit_1"
+            android:text="1" />
+        <Button android:id="@+id/btn_digit_2"
+            android:text="2" />
+        <Button android:id="@+id/btn_digit_3"
+            android:text="3" />
+        <Button android:id="@+id/btn_operation_addition"
+            android:text="+" />
 
-    <!-- Row 5 -->
-    <Button
-        android:id="@+id/btn_digit_0"
-        android:layout_width="176dp"
-        android:layout_columnSpan="2"
-        android:text="0" />
-    <Button android:id="@+id/btn_dot"
-        android:text="." />
-    <Button android:id="@+id/btn_equal"
-        android:text="=" />
+        <!-- Row 5 -->
+        <Button
+            android:id="@+id/btn_digit_0"
+            android:layout_width="176dp"
+            android:layout_columnSpan="2"
+            android:text="0" />
+        <Button android:id="@+id/btn_dot"
+            android:text="." />
+        <Button android:id="@+id/btn_equal"
+            android:text="=" />
 
-</GridLayout>
+    </GridLayout>
 </LinearLayout>
+</RelativeLayout>
